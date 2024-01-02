@@ -1,0 +1,534 @@
+
+body {
+    background: linear-gradient(1deg, #111827, #23344d);
+    background-size: 400% 400%;
+    -webkit-animation: AnimationName 30s ease infinite;
+    -moz-animation: AnimationName 30s ease infinite;
+    animation: AnimationName 30s ease infinite;
+    font-family: Chakra Petch,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji";
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:64% 0%}
+    50%{background-position:37% 100%}
+    100%{background-position:64% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:64% 0%}
+    50%{background-position:37% 100%}
+    100%{background-position:64% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:64% 0%}
+    50%{background-position:37% 100%}
+    100%{background-position:64% 0%}
+}
+
+
+@media all {
+
+div#holodex
+{
+    width: 750px;
+    margin: 50px auto 0 auto;
+}
+
+div#left
+{
+    width: 400px;
+    height: 500px;
+    float: left;
+    position: relative;
+    z-index: 1;
+}
+
+div#right
+{
+    width: 350px;
+    height: 500px;
+    float: left;
+    position: relative;
+}
+
+
+
+/* //// LEFT PART //// */
+
+div#curve1_left
+{
+    width: 201px;
+    height: 85px;
+    background-color: #2f008b;
+    float: left;
+    padding: 15px 0 0 15px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    box-shadow: -10px 9px #0f0148;
+    -webkit-box-shadow: -10px 9px #0f0148;;
+    
+    border-bottom-right-radius: 85px 60px;
+    -webkit-border-bottom-right-radius: 85px 60px;
+    -moz-border-bottom-right-radius: 85px 60px;
+    -o-border-bottom-right-radius: 85px 60px;
+
+    border-top-left-radius: 30px;
+    -webkit-border-top-left-radius: 30px;
+    -moz-border-top-left-radius: 30px;
+    -o-border-top-left-radius: 30px;
+}
+
+
+div#bg_curve1_left
+{
+    width: 400px;
+    height: 80px;
+    background-color: #0f0148;
+
+    border-top-left-radius: 30px;
+    -webkit-border-top-left-radius: 30px;
+    -moz-border-top-left-radius: 30px;
+    -o-border-top-left-radius: 30px;
+}
+
+div#curve2_left
+{
+    width: 216px;
+    height: 451px;
+    background-color: #001c91;
+    float: right;
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    border-top-left-radius:85px 60px;
+    -webkit-border-top-left-radius: 85px 60px;
+    box-shadow: 0 0 40px #03f;
+   
+}
+
+div#bg_curve2_left
+{
+    width: 400px;
+    height: 420px;
+    background-color: #520dc0;
+    box-shadow: -10px 9px #0f0148;
+    -webkit-box-shadow: -10px 9px #0f0148;
+    border-bottom-left-radius: 30px;
+    -webkit-border-bottom-left-radius: 30px;
+}
+
+div#buttonGlass
+{
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+    border: 5px solid #fff;
+    float: left;
+    background: radial-gradient(#05fbfb, #29abe3);
+    background: -webkit-radial-gradient(#05fbfb, #29abe3);
+    border-radius: 35px;
+    -webkit-border-radius: 35px;
+}
+
+div#reflect
+{
+    width: 30px;
+    height: 18px;
+    margin: 3px 0 0 15px;
+    background: #fff;
+    opacity: 0.6;
+
+    border-radius: 15px 9px;
+    -webkit-border-radius: 15px 9px;
+    -moz-border-radius: 15px 9px;
+       -o-border-radius: 15px 9px;
+            
+}
+
+div#z-logo {
+ margin-top: -10px;
+margin-left: 10px;
+}
+
+div#miniButtonGlass1
+{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    margin-top: -10px;
+    margin-left: 60px;
+    
+    float: bottom;
+
+    box-shadow: 0 0 10px #910000;
+    -webkit-box-shadow: 0 0 10px #910000;
+
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -o-border-radius: 20px;
+    
+    background: radial-gradient(#d16d6d, #e70000);
+    background: -webkit-radial-gradient(#d16d6d, #e70000);
+}
+
+div#miniButtonGlass2
+{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    margin-top: 5px;
+    float: bottom;
+    margin-left: 70px;
+    box-shadow: 0 0 10px #334900;
+    -webkit-box-shadow: 0 0 10px #334900;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -o-border-radius: 20px;
+    
+    background: radial-gradient(#e2e28c, #fbfb05);
+    background: -webkit-radial-gradient(#e2e28c, #fbfb05);
+}
+
+div#miniButtonGlass3
+{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    float: bottom;
+    margin-top: 3px;
+    margin-left: 70px;
+
+    box-shadow: 0 0 10px #004904;
+    -webkit-box-shadow: 0 0 15px #008006;
+
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -o-border-radius: 20px;
+    
+    background: radial-gradient(#baf591, #50fb05);
+    background: -webkit-radial-gradient(#baf591, #50fb05);
+}
+
+div#miniButtonGlass4
+{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    float: bottom;
+    margin-top: 3px;
+    float: bottom;
+    margin-left: 60px;
+
+    box-shadow: 0 0 10px #004649;
+    -webkit-box-shadow: 0 0 15px #004649;
+
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -o-border-radius: 20px;
+    
+    background: radial-gradient(#91e9f5, #05a1fb);
+    background: -webkit-radial-gradient(#91e9f5, #05a1fb);
+}
+
+div#junction
+{
+    width: 60px;
+    height: 451px;
+    float: right;
+    
+    background: linear-gradient(left, #0f0148 0%, #340dc0 50%, #0f0148 100%);	
+    background: -webkit-linear-gradient(left, #0f0148 0%, #340dc0 50%, #0f0148 100%);
+}
+
+div#junction1
+{
+    height: 40px;
+    background-color: #09005e;
+    opacity: 0.3;
+    margin-top: 50px;
+    margin-bottom: 262px;
+
+    border-top: 5px solid #2e0148;
+    border-bottom: 5px solid #2e0148;
+}
+
+div#junction2
+{
+    height: 40px;
+    background-color: #09005e;
+    opacity: 0.3;
+
+    border-top: 5px solid #2e0148;
+    border-bottom: 5px solid #2e0148;
+}
+
+div#screen
+{
+    height: 310px;
+    width: 260px;
+    padding: 0 20px;
+    background-color: #c4d7ff;
+    float:left;
+
+    position: absolute;
+    top: 130px;
+    left: 19px;
+
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+
+div#picture
+{
+    height: 190px;
+    width: 254px;
+    margin-top: 20px;
+    margin-bottom: 9px;
+    background-size: 254px 250px;
+    background-image: url("https://holozing.com/images/creatures/fire_wolf.png");
+    border: 3px solid #494949;
+    clear: both;
+    padding-top: 60px;
+
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+div#picturebg
+{
+
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+.animategreen {
+  background: linear-gradient(300deg,rgb(8, 82, 1),rgb(153, 245, 135),rgb(0, 255, 13));
+  background-size: 180% 180%;
+  animation: gradient-animation 2s ease infinite;
+}
+
+.animatered {
+  background: linear-gradient(300deg,rgb(82, 1, 1),rgb(245, 135, 135),#a10b00);
+  background-size: 180% 180%;
+  animation: gradient-animation 2s ease infinite;
+}
+
+.animateyellow {
+  background: linear-gradient(300deg,rgb(185, 173, 0),rgb(238, 245, 135),#d0ff00);
+  background-size: 180% 180%;
+  animation: gradient-animation 2s ease infinite;
+}
+.animateblue {
+  background: linear-gradient(300deg,rgb(1, 6, 82),rgb(135, 186, 245),#382e64);
+  background-size: 180% 180%;
+  animation: gradient-animation 2s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+div#picture img
+{
+    display: block;
+    margin: 0 auto;
+}
+
+div#topPicture
+{
+    margin: 6px auto;
+    width: 40px;
+}
+
+
+div#speakers
+{
+    float: right;
+    width: 75px;
+    height: 25px;
+    margin-right: 20px;
+}
+
+div.sp
+{
+    height: 3px;
+    margin-bottom: 5px;
+    background-color: #494949;
+
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -o-border-radius: 30px;
+}
+
+
+
+
+/* //// RIGHT PART //// */
+
+div#curve1_right
+{
+    width: 166px;
+    height: 451px;
+    background-color: #001c91;
+    float: right;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-top-right-radius:85px 60px;
+    -webkit-border-right-left-radius: 85px 60px;
+    box-shadow: 0 0 40px #03f;
+}
+
+
+div#bg_curve1_right
+{
+    width: 350px;
+    height: 80px;
+    background-color: #0f0148;
+    border-top-right-radius: 30px;
+    -webkit-border-top-right-radius: 30px;
+}
+
+div#curve2_right
+{
+    width: 216px;
+    height: 100px;
+    background-color: #520dc0;
+    float: left;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    border-bottom-left-radius: 85px 60px;
+    -webkit-border-bottom-left-radius: 85px 60px;
+}
+
+div#bg_curve2_right
+{
+    width: 350px;
+    height: 420px;
+    background-color: #520dc0;
+
+    border-bottom-right-radius: 30px;
+    -webkit-border-bottom-right-radius: 30px;
+    
+
+    box-shadow: -10px 9px #0f0148;
+    -webkit-box-shadow: -10px 9px #0f0148;
+}
+
+
+
+div#stats
+{
+    height: 290px;
+    width: 280px;
+    padding: 10px;
+    background-color: #0c8eda;
+    z-index: 1;
+    font-size: 13px;
+
+    position: absolute;
+    top: 130px;
+    left: 25px;
+
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -o-border-radius: 15px;
+
+    box-shadow: 0 0 20px #003300 inset;
+    -webkit-box-shadow: 0 0 20px #003300 inset;
+}
+
+
+.search {
+  width: 300px;
+  z-index: 1;
+    position: absolute;
+    top: 90px;
+    left: 25px;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 36px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+
+}
+
+@media handheld and (orientation:portrait), (max-width:768px) {
+
+div#holodex
+{
+    width: 400px;
+}
+
+
+div#left
+{
+    width: 400px;
+    height: 500px;
+    float: left;
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+}
+
+
+div#right, div#screen
+{
+    display: none;
+}
+
+
+}
