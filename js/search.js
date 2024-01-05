@@ -1,8 +1,13 @@
-
 let nowDate = new Date();
 let mindate = new Date(nowDate.getTime() + 30 * 60 * 1000);
 let timeExpire = mindate.getTime();
 let authToken = "";
+let isLogged=false;
+let playerPerson;
+var obstacles = [];
+var tokenReward;
+let qtyTokenReward = parseFloat(0);
+let reward=0.001;
 
 
 function send() {
@@ -20,6 +25,7 @@ function send() {
             hiveResponse = response;
             if (response.success == true) {
                 userField.setAttribute('readonly', true);
+                isLogged=true;
                 userField.classList.remove('neon');
                 document.getElementById("userprofile").src = `https://images.hive.blog/u/${username}/avatar/small`;
 
@@ -107,6 +113,16 @@ function search(searchTerm) {
     return results;
 }
 $("#tokenInfo").click(function () {
+    
+    $("#game").hide();
+    $("#startGame").hide();
+    $("#classPanel").hide();
+
+    $("#TokenInfoPanel").show();
+    $("#successful").hide();
+    $("#ClaimPanel").hide();
+    $("#WelcomePanel").hide();
+
     let hivePrice = 0;
     $.get('https://api.coingecko.com/api/v3/simple/price?ids=hive&vs_currencies=usd', function (data, status) {
         hivePrice=data.hive.usd;   
@@ -128,10 +144,6 @@ $("#tokenInfo").click(function () {
 
     
 
-    $("#TokenInfoPanel").show();
-    $("#successful").hide();
-    $("#ClaimPanel").hide();
-    $("#WelcomePanel").hide();
 })
 $("#rewards").click(function () {
     $(".ButtonPanel").show();
@@ -139,6 +151,10 @@ $("#rewards").click(function () {
     $("#TokenInfoPanel").hide();
     $("#successful").hide();
     $("#ClaimPanel").show();
+    
+    $("#game").hide();
+    $("#startGame").hide();
+    $("#classPanel").hide();
 })
 $("#logout").click(function () {
     reset();
@@ -156,6 +172,10 @@ function reset() {
     document.getElementById("picture").style.backgroundImage = `url('')`;
     $("#ClaimPanel").hide();
     $("#successful").hide();
+    $("#game").hide();
+    $("#startGame").hide();
+    $("#classPanel").hide();
+
     $("#WelcomePanel").show();
     
     document.getElementById("picturebg").classList.remove(`${animateClass}`);
@@ -192,3 +212,190 @@ document.getElementById("search").addEventListener("input", () => {
         }
     }
 });
+
+
+$("#MiniGame").click(function () {
+    if(isLogged)
+        init();
+    
+})
+function init() {
+    
+    $("#WelcomePanel").hide();
+    $("#TokenInfoPanel").hide();
+    $("#successful").hide();
+    $("#ClaimPanel").hide();
+    $("#game").show();
+    $("#startGame").show();
+    $("#classPanel").show();
+    
+    obstacles = [];
+    playerPerson = new component(55, 55, "img/water_whale.png", 50, 50, "image");
+    playerPerson.gravity = 0.05;
+    tokenReward = new component("14px", "Impact", "white", 150, 20, "text");
+    
+   // $("#game").empty();
+    gameArea.load();
+}
+function startGame() {   
+    
+    $("#startGame").hide();
+    
+    gameArea.start();
+}
+function resetGame(){
+    
+    gameArea.stop();
+    gameArea.clear();
+    
+    $("#resetGame").hide();
+    init();
+    startGame();
+} 
+
+var gameArea = {
+    canvas : document.createElement("canvas"),
+    start: function() {  this.interval = setInterval(updateGameArea, 20); },
+    load : function() {
+        this.canvas.width = 254;
+        this.canvas.height = 254;
+		this.canvas.id="taptap";
+        this.context = this.canvas.getContext("2d");
+        $("#game").html(this.canvas);
+        this.framePos = 0;
+       
+		document.getElementById("taptap").addEventListener("mousedown", mouseDown);
+        document.getElementById("taptap").addEventListener("mouseup", mouseUp);
+
+function mouseDown() {
+  accelerate(-0.2);
+}
+
+function mouseUp() {
+  accelerate(0.05);
+}
+        },
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    },
+	stop : function() {
+        clearInterval(this.interval);
+    }
+}
+
+function component(width, height, color, x, y, type) {
+    this.type = type;
+	this.type = type;
+    if (type == "image") {
+        this.image = new Image();
+        this.image.src = color;
+    }
+    this.score = 0;
+    this.width = width;
+    this.height = height;
+    this.speedX = 0;
+    this.speedY = 0;    
+    this.x = x;
+    this.y = y;
+    this.gravity = 0;
+    this.gravitySpeed = 0;
+    this.update = function() {
+        ctx = gameArea.context;
+        if (this.type == "text") {
+            ctx.font = this.width + " " + this.height;
+            ctx.fillStyle = color;
+            ctx.fillText(this.text, this.x, this.y);
+			
+        } 
+		if (type == "image") {
+            ctx.drawImage(this.image, 
+                this.x, 
+                this.y,
+                this.width, this.height);}
+		
+		else {
+            ctx.fillStyle = color;
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+    }
+    this.newPos = function() {
+        this.gravitySpeed += this.gravity;
+        this.x += this.speedX;
+        this.y += this.speedY + this.gravitySpeed;
+        this.hitBottom();
+    }
+    this.hitBottom = function() {
+        var rockbottom = gameArea.canvas.height - this.height;
+        if (this.y > rockbottom) {
+            this.y = rockbottom;
+            this.gravitySpeed = 0;
+        }
+        if(this.y <= 0)
+            this.y =0
+    }
+    this.crashWith = function(otherobj) {
+        var myleft = this.x;
+        var myright = this.x + (this.width);
+        var mytop = this.y;
+        var mybottom = this.y + (this.height);
+        var otherleft = otherobj.x;
+        var otherright = otherobj.x + (otherobj.width);
+        var othertop = otherobj.y;
+        var otherbottom = otherobj.y + (otherobj.height);
+        var crash = true;
+        if ((mybottom-20< othertop) || (mytop+20> otherbottom) || (myright-20 < otherleft) || (myleft +20> otherright)) {
+            crash = false;
+        }
+        return crash;
+    }
+}
+
+function updateGameArea() {
+    
+    var x, height, gap, minHeight, maxHeight, minGap, maxGap;
+    let multplier=10;
+    reward = 0.001;
+
+    for (i = 0; i < obstacles.length; i += 1) {
+        if (playerPerson.crashWith(obstacles[i])) {
+
+            $("#resetGame").show();
+            return;
+        } 
+    }
+
+    gameArea.clear();
+    gameArea.framePos += 1;
+    
+    if (gameArea.framePos == 1 || everyinterval(100)) {
+        x = gameArea.canvas.width;
+        minHeight = 10;
+        maxHeight = 150;
+        height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
+        minGap = 50;
+        maxGap = 200;
+        gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
+		obstacles.push(new component(30, height, "img/rotatecoral.png", x, 0, "image"));
+        obstacles.push(new component(30, x - height - gap, "img/coral.png", x, height + gap,"image"));
+    }
+    for (i = 0; i < obstacles.length; i += 1) {
+        obstacles[i].x += -2;
+        obstacles[i].update();
+    }
+
+    qtyTokenReward =Number(multplier*reward*gameArea.framePos).toFixed(3)
+    
+    tokenReward.text="Score: " + qtyTokenReward;
+    tokenReward.update();
+    playerPerson.newPos();
+    playerPerson.update();
+}
+
+function everyinterval(n) {
+    if ((gameArea.framePos / n) % 1 == 0) {return true;}
+    return false;
+}
+
+function accelerate(n) {
+    playerPerson.gravity = n;
+}
