@@ -30,7 +30,13 @@
       <div id="screen">
         <div id="picturebg" class="picturebgbs">
           <div id="picture">
-
+            <div id="classPanel">
+            <button class="claimButton" onclick="startGame()" id="startGame">Start</button>
+            <button class="claimButton" id="resetGame" style="display:none" onclick="resetGame()">Reset</button>
+            </div>
+            <div id="game">
+            
+            </div>
             <div id="WelcomePanel">
               <center><strong>Welcome!</strong></center>
               This is a fan project, initially it started to provide information about the characters in the game, however the project has grown and now you can even claim your rewards.
@@ -141,10 +147,13 @@
             <div id="tokenInfo"><strong>Token Info</strong></div>
             <div id="logout"><strong>Logout</strong></div>
           </section>
+          
+          <section class='statsFlexContainer'>
+            <div id="MiniGame"><strong>Mini Game</strong></div>
+          </section>
         </div>
       </div>
       <div id="reset">
-        <button id="resetButton" onclick="reset()" class="claimButton">Reset</button>
       </div>
       <div id="barbutton3"></div>
       <div id="barbutton4"></div>
