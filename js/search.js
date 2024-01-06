@@ -269,8 +269,10 @@ var gameArea = {
         $("#game").html(this.canvas);
         this.framePos = 0;
        
-		document.getElementById("taptap").addEventListener("mousedown", mouseDown);
+	document.getElementById("taptap").addEventListener("mousedown", mouseDown);
         document.getElementById("taptap").addEventListener("mouseup", mouseUp);
+        document.getElementById("taptap").addEventListener("touchstart", accelerateDown);
+        document.getElementById("taptap").addEventListener("touchend", accelerateUp); 
 
 function mouseDown() {
   accelerate(-0.2);
@@ -278,6 +280,19 @@ function mouseDown() {
 
 function mouseUp() {
   accelerate(0.05);
+}
+let isTouching = false;
+
+function accelerateDown() {
+    if (!isTouching) {
+        accelerate(-0.2);
+        isTouching = true;
+    }
+}
+
+function accelerateUp() {
+    isTouching = false;
+    accelerate(0.05);
 }
         },
     clear : function() {
