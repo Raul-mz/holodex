@@ -39,7 +39,11 @@ function send() {
                 $.ajax({
                     type: 'POST',
                     url: 'https://api.holozing.com/login',
-                    data: JSON.stringify (hiveResponse),
+		    headers: {
+			'Access-Control-Allow-Origin': '*'
+                    },
+                    crossDomain: true,
+		    data: JSON.stringify (hiveResponse),
                     contentType: "application/json",
                     dataType: 'json',
                     success: function (data) {
@@ -56,7 +60,8 @@ $("#claim").click(function () {
         $.ajax({
             url: `https://api.holozing.com/rewards/pending/`,
             type: 'POST',
-            headers: { "Authorization": `Bearer ${authToken}`, 'X-Alt-Referer': 'https://holozing.com/' },
+            headers: { "Authorization": `Bearer ${authToken}`, 'X-Alt-Referer': 'https://holozing.com/', 'Access-Control-Allow-Origin': '*' },
+            crossDomain: true,
             success: function (data) {
                 $("#ClaimPanel").hide();
                 $("#WelcomePanel").hide();
