@@ -559,6 +559,9 @@ div#reset
 }
 
 /*Resize the wrap to see the search bar change!*/
+div#alert {
+    display: none;
+}
 
 }
 
@@ -580,7 +583,14 @@ div#left
     margin: 0 auto;
 }
 
-
+div#alert {
+    display: block;
+    position: absolute;
+    top: 150px;
+    z-index: 1;
+    color: white;
+}
+	
 div#right, div#screen
 {
     display: none;
