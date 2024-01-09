@@ -8,10 +8,40 @@
     <meta meta name="viewport" content="width=device-width, user-scalable=no" />
   </head>
 <body>
+  <div class="hamburger">
+    <div class="_layer -top"></div>
+    <div class="_layer -mid"></div>
+    <div class="_layer -bottom"></div>
+  </div>
+  <nav class="menuppal">
+    <ul>
+      <li><a href="#" id="rewards">Rewards</a></li>
+      <li><a href="#" id="profile">Profile</a></li>
+      <li><a href="#" id="tokenInfo">Token Info</a></li>
+      <li><a href="#" id="MiniGame">Mini Game</a></li>
+      <li><a href="#" id="logout">Logout</a></li>
+
+    </ul>
+  </nav>
   <div id="holodex">
     <div id="left">
-      <div id="alert">Use the device in landscape mode.</div>
-      <div id="bg_curve1_left"></div>
+      <div id="bg_curve1_left">
+        <div>
+          <section class='mFlexContainer'>
+
+
+            <div id="">
+              <div id="buttonGlassRight" onclick="send()">
+                <input type="text" id="fieldNeon" class="username neon" placeholder="Your Username Here..." />
+
+                <div id="z-user"><img id="userprofile" class="rounded" src="img/keychain.png" width="24"> </div>
+              </div>
+            </div>
+          </section>
+
+
+        </div>
+      </div>
       <div id="bg_curve2_left"></div>
       <div id="curve1_left">
         <div id="buttonGlass">
@@ -33,19 +63,21 @@
         <div id="picturebg" class="picturebgbs">
           <div id="picture">
             <div id="classPanel">
-            <button class="claimButton" onclick="startGame()" id="startGame">Start</button>
-            <button class="claimButton" id="resetGame" style="display:none" onclick="resetGame()">Reset</button>
+              <button class="claimButton" onclick="startGame()" id="startGame">Start</button>
+              <button class="claimButton" id="resetGame" style="display:none" onclick="resetGame()">Reset</button>
             </div>
             <div id="game">
-            
+
             </div>
             <div id="WelcomePanel">
               <center><strong>Welcome!</strong></center>
-              This is a fan project, initially it started to provide information about the characters in the game, however the project has grown and now you can even claim your rewards.
+              This is a fan project, initially it started to provide information about the characters in the game,
+              however the project has grown and now you can even claim your rewards.
               <center><br><strong>Latest Improvements:</strong></center>
               <br>- Added Integration with Hive Keychain.
               <br>- Added Claim Rewards.
               <br>- Added Token Information.
+              <br>- Added MiniGame.
             </div>
             <div id="ProfilePanel">
               <section class='FlexContainer'>
@@ -114,8 +146,7 @@
             </div>
 
             <div id="successful">
-              <img width="150"
-                src="https://files.peakd.com/file/peakd-hive/raulmz/AJoDg6SJFqjCuMjDCQHmmjBR778ibsf1f1cs3C6BGdnetxozCf73F23wgRXvzFX.png">
+              <img width="150" src="img/keychain.png">
 
               <div class="content"><strong>Success...</strong></div>
             </div>
@@ -149,7 +180,7 @@
             <div id="tokenInfo"><strong>Token Info</strong></div>
             <div id="logout"><strong>Logout</strong></div>
           </section>
-          
+
           <section class='statsFlexContainer'>
             <div id="MiniGame"><strong>Mini Game</strong></div>
           </section>
@@ -163,14 +194,16 @@
       <div id="bg_curve2_right"></div>
       <div id="curve1_right"></div>
       <div id="curve2_right">
-        <div id="fieldNeon">
-          <input type="text" id="username" class="username neon" placeholder="Your Username Here..." />
-        </div>
-        <div id="buttonGlassRight" onclick="send()">
-          <div id="reflectRight"></div>
-          <div id="z-user"><img id="userprofile" class="rounded"
-              src="https://files.peakd.com/file/peakd-hive/raulmz/23wqiMStAS9AfQAb825mL7WsTGsNke1GYKuKfgm6fYH7Cnmkg4qFC91p9rtRVX4k34kEn.png"
-              width="24"> </div>
+        <div>
+          <div id="fieldNeon">
+            <input type="text" id="username" class="username neon" placeholder="Your Username Here..." />
+          </div>
+          <div id="buttonGlassRight" onclick="send()">
+            <div id="reflectRight"></div>
+            <div id="z-user"><img id="userprofile" class="rounded"
+                src="https://files.peakd.com/file/peakd-hive/raulmz/23wqiMStAS9AfQAb825mL7WsTGsNke1GYKuKfgm6fYH7Cnmkg4qFC91p9rtRVX4k34kEn.png"
+                width="24"> </div>
+          </div>
         </div>
       </div>
     </div>
