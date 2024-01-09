@@ -9,14 +9,27 @@ var tokenReward;
 let qtyTokenReward = parseFloat(0);
 let reward=0.001;
 
+var menu = document.querySelector('.hamburger');
+
+// method
+function toggleMenu (event) {
+  this.classList.toggle('is-active');
+  document.querySelector( ".menuppal" ).classList.toggle("is_active");
+  event.preventDefault();
+}
+
+// event
+menu.addEventListener('click', toggleMenu, false);
 
 function send() {
     userField = document.getElementById("username");
     username = userField.value;
     
+    document.querySelector('.hamburger').classList.remove('is-active');
+    document.querySelector( '.menuppal' ).classList.remove('is_active');
     $("#ClaimPanel").show();
     $("#WelcomePanel").hide();
-
+   
     window.hive_keychain.requestSignBuffer(
         username,
         `{\"username\":\"${username}\",\"type\":\"login\",\"app\":\"Holodex\",\"expiry\":${timeExpire}}`,
@@ -29,7 +42,7 @@ function send() {
                 userField.classList.remove('neon');
                 document.getElementById("userprofile").src = `https://images.hive.blog/u/${username}/avatar/small`;
 
-                $.get(`https://api-public.holozing.com/rewards/pending?user=${username}`, function (data, status) {
+                $.get(`https://api.holozing.com/rewards/pending?user=${username}`, function (data, status) {
                     $("#staking").text(data.stakeZing);
                     $("#delegation").text(data.delegation);
                     $("#posh").text(data.stakePosh);
@@ -38,12 +51,8 @@ function send() {
                 });
                 $.ajax({
                     type: 'POST',
-                    url: 'https://api-public.holozing.com/login',
-		    headers: {
-			'Access-Control-Allow-Origin': '*'
-                    },
-                    crossDomain: true,
-		    data: JSON.stringify (hiveResponse),
+                    url: 'https://api.holozing.com/login',
+                    data: JSON.stringify (hiveResponse),
                     contentType: "application/json",
                     dataType: 'json',
                     success: function (data) {
@@ -58,10 +67,9 @@ function send() {
 $("#claim").click(function () {
     if (authToken != "") {
         $.ajax({
-            url: `https://api-public.holozing.com/rewards/pending/`,
+            url: `https://api.holozing.com/rewards/pending/`,
             type: 'POST',
-            headers: { "Authorization": `Bearer ${authToken}`, 'X-Alt-Referer': 'https://holozing.com/', 'Access-Control-Allow-Origin': '*' },
-            crossDomain: true,
+            headers: { "Authorization": `Bearer ${authToken}`, 'X-Alt-Referer': 'https://holozing.com/' },
             success: function (data) {
                 $("#ClaimPanel").hide();
                 $("#WelcomePanel").hide();
@@ -123,6 +131,8 @@ $("#tokenInfo").click(function () {
     $("#startGame").hide();
     $("#classPanel").hide();
 
+    document.querySelector('.hamburger').classList.remove('is-active');
+    document.querySelector( '.menuppal' ).classList.remove('is_active');
     $("#TokenInfoPanel").show();
     $("#successful").hide();
     $("#ClaimPanel").hide();
@@ -142,7 +152,7 @@ $("#tokenInfo").click(function () {
             $("#marketPrice").text(Number(parseFloat(hivePrice) * parseFloat(data.result[1].highestBid)).toFixed(5));
         }
     });
-    $.get('https://api-public.holozing.com/stats', function (data, status) {
+    $.get('https://api.holozing.com/stats', function (data, status) {
         $("#calculatedCirculationBalance").text(Number(data.circulation.calculatedCirculationBalance).toFixed(1));
         $("#totalZingStaked").text(Number(data.rewardTokenTotals.totalZingStaked).toFixed(1));
     });
@@ -157,6 +167,8 @@ $("#rewards").click(function () {
     $("#successful").hide();
     $("#ClaimPanel").show();
     
+    document.querySelector('.hamburger').classList.remove('is-active');
+    document.querySelector( '.menuppal' ).classList.remove('is_active');
     $("#game").hide();
     $("#startGame").hide();
     $("#classPanel").hide();
@@ -181,6 +193,8 @@ function reset() {
     $("#startGame").hide();
     $("#classPanel").hide();
 
+    document.querySelector('.hamburger').classList.remove('is-active');
+    document.querySelector( '.menuppal' ).classList.remove('is_active');
     $("#WelcomePanel").show();
     
     document.getElementById("picturebg").classList.remove(`${animateClass}`);
@@ -195,7 +209,9 @@ document.getElementById("search").addEventListener("input", () => {
     reset();
     $("#WelcomePanel").hide();
     $(".ButtonPanel").hide();
-    
+    document.querySelector('.hamburger').classList.remove('is-active');
+    document.querySelector( '.menuppal' ).classList.remove('is_active');
+
     if (searchTerm.length == 0) {
         reset();
     }
@@ -220,7 +236,9 @@ document.getElementById("search").addEventListener("input", () => {
 
 
 $("#MiniGame").click(function () {
-    if(isLogged)
+    document.querySelector('.hamburger').classList.remove('is-active');
+    document.querySelector( '.menuppal' ).classList.remove('is_active');
+   // if(isLogged)
         init();
     
 })
@@ -269,11 +287,10 @@ var gameArea = {
         $("#game").html(this.canvas);
         this.framePos = 0;
        
-	document.getElementById("taptap").addEventListener("mousedown", mouseDown);
+		document.getElementById("taptap").addEventListener("mousedown", mouseDown);
         document.getElementById("taptap").addEventListener("mouseup", mouseUp);
         document.getElementById("taptap").addEventListener("touchstart", accelerateDown);
         document.getElementById("taptap").addEventListener("touchend", accelerateUp); 
-
 function mouseDown() {
   accelerate(-0.2);
 }
@@ -281,6 +298,7 @@ function mouseDown() {
 function mouseUp() {
   accelerate(0.05);
 }
+
 let isTouching = false;
 
 function accelerateDown() {
