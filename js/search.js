@@ -42,7 +42,7 @@ function send() {
                 userField.classList.remove('neon');
                 document.getElementById("userprofile").src = `https://images.hive.blog/u/${username}/avatar/small`;
 
-                $.get(`https://api.holozing.com/rewards/pending?user=${username}`, function (data, status) {
+                $.get(`https://api-public.holozing.com/rewards/pending?user=${username}`, function (data, status) {
                     $("#staking").text(data.stakeZing);
                     $("#delegation").text(data.delegation);
                     $("#posh").text(data.stakePosh);
@@ -51,7 +51,7 @@ function send() {
                 });
                 $.ajax({
                     type: 'POST',
-                    url: 'https://api.holozing.com/login',
+                    url: 'https://api-public.holozing.com/login',
                     data: JSON.stringify (hiveResponse),
                     contentType: "application/json",
                     dataType: 'json',
@@ -67,7 +67,7 @@ function send() {
 $("#claim").click(function () {
     if (authToken != "") {
         $.ajax({
-            url: `https://api.holozing.com/rewards/pending/`,
+            url: `https://api-public.holozing.com/rewards/pending/`,
             type: 'POST',
             headers: { "Authorization": `Bearer ${authToken}`, 'X-Alt-Referer': 'https://holozing.com/' },
             success: function (data) {
@@ -152,7 +152,7 @@ $("#tokenInfo").click(function () {
             $("#marketPrice").text(Number(parseFloat(hivePrice) * parseFloat(data.result[1].highestBid)).toFixed(5));
         }
     });
-    $.get('https://api.holozing.com/stats', function (data, status) {
+    $.get('https://api-public.holozing.com/stats', function (data, status) {
         $("#calculatedCirculationBalance").text(Number(data.circulation.calculatedCirculationBalance).toFixed(1));
         $("#totalZingStaked").text(Number(data.rewardTokenTotals.totalZingStaked).toFixed(1));
     });
