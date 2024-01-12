@@ -125,7 +125,7 @@ function search(searchTerm) {
 
     return results;
 }
-$("#tokenInfo").click(function () {
+$(".tokenInfo").click(function () {
     
     $("#game").hide();
     $("#startGame").hide();
@@ -160,7 +160,7 @@ $("#tokenInfo").click(function () {
     
 
 })
-$("#rewards").click(function () {
+$(".rewards").click(function () {
     $(".ButtonPanel").show();
     $("#WelcomePanel").hide();
     $("#TokenInfoPanel").hide();
@@ -173,7 +173,7 @@ $("#rewards").click(function () {
     $("#startGame").hide();
     $("#classPanel").hide();
 })
-$("#logout").click(function () {
+$(".logout").click(function () {
     reset();
     $("#search").val("");
     userField = document.getElementById("username");
@@ -235,13 +235,14 @@ document.getElementById("search").addEventListener("input", () => {
 });
 
 
-$("#MiniGame").click(function () {
+$(".MiniGame").click(function () {
     document.querySelector('.hamburger').classList.remove('is-active');
     document.querySelector( '.menuppal' ).classList.remove('is_active');
    // if(isLogged)
         init();
     
 })
+
 function init() {
     
     $("#WelcomePanel").hide();
@@ -272,6 +273,7 @@ function resetGame(){
     gameArea.clear();
     
     $("#resetGame").hide();
+    $("#ClaimPanel").hide();
     init();
     startGame();
 } 
