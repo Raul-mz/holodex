@@ -15,11 +15,11 @@
   </div>
   <nav class="menuppal">
     <ul>
-      <li><a href="#" id="rewards">Rewards</a></li>
-      <li><a href="#" id="profile">Profile</a></li>
-      <li><a href="#" id="tokenInfo">Token Info</a></li>
-      <li><a href="#" id="MiniGame">Mini Game</a></li>
-      <li><a href="#" id="logout">Logout</a></li>
+      <li><a href="#" id="rewards" class="rewards">Rewards</a></li>
+      <li><a href="#" id="profile" class="profile">Profile</a></li>
+      <li><a href="#" id="tokenInfo" class="tokenInfo">Token Info</a></li>
+      <li><a href="#" id="MiniGame" class="MiniGame">Mini Game</a></li>
+      <li><a href="#" id="logout" class="logout">Logout</a></li>
 
     </ul>
   </nav>
@@ -31,10 +31,10 @@
 
 
             <div id="">
-              <div id="buttonGlassRight">
+              <div id="buttonGlassRight" onclick="send()">
                 <input type="text" id="fieldNeon" class="username neon" placeholder="Your Username Here..." />
 
-                <div id="z-user" onclick="send()"><img id="userprofile" class="rounded" src="img/keychain.png" width="24"> </div>
+                <div id="z-user"><img id="userprofile" class="rounded" src="img/keychain.png" width="24"> </div>
               </div>
             </div>
           </section>
@@ -173,16 +173,16 @@
         </div>
         <div class="ButtonPanel">
           <section class='statsFlexContainer'>
-            <div id="rewards"><strong>Rewards</strong></div>
-            <div id="total"><strong>Profile</strong></div>
+            <div id="rewards" class="rewards"><strong>Rewards</strong></div>
+            <div id="total" class="total"><strong>Profile</strong></div>
           </section>
           <section class='statsFlexContainer'>
-            <div id="tokenInfo"><strong>Token Info</strong></div>
-            <div id="logout"><strong>Logout</strong></div>
+            <div id="tokenInfo" class="tokenInfo"><strong>Token Info</strong></div>
+            <div id="logout" class="logout"><strong>Logout</strong></div>
           </section>
 
           <section class='statsFlexContainer'>
-            <div id="MiniGame"><strong>Mini Game</strong></div>
+            <div id="MiniGame" class="MiniGame"><strong>Mini Game</strong></div>
           </section>
         </div>
       </div>
